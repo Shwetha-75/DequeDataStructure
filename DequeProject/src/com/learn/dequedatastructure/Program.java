@@ -6,27 +6,10 @@ public class Program
 {
 	public static void main(String[] args) 
 	{
-		Deque<String> queue=new Deque<String>();
-		
-		queue.addFirst("Good");
-		queue.addFirst("Evening");
-		queue.addLast("Shwetha");
-		queue.addFirst("Have a nice day");
-		queue.addFirst("stick on to your goals");
-		
-		queue.removeLast();
-		queue.removeLast();
-		queue.removeLast();
-		queue.removeLast();
-		queue.removeLast();
-		queue.removeLast();
-     	Iterator<String> itr=queue.iterator();
-		
-   	    while(itr.hasNext())
-	    {
-			System.out.println(itr.next());
-		}
-		
+		//test the working of deque interface here 
+		//you can have different datatypes 
+		/*It works for all the data type */
+		/*Methods like next(), remove(), removeFirst(), removeLast() throws exception*/
 	}
 
 }
