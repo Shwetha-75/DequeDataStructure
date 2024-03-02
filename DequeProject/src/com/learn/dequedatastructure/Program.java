@@ -6,7 +6,7 @@ public class Program
 {
 	public static void main(String[] args) 
 	{
-		//test the working of deque interface here 
+		//test the working of deque  
 		//you can have different datatypes 
 		/*It works for all the data type */
 		/*Methods like next(), remove(), removeFirst(), removeLast() throws exception*/
