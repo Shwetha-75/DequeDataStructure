@@ -1,24 +1,40 @@
-package com.learn.dequedatastructure;
+
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Deque<Item> implements Iterable<Item> {
-	int size;
+public class Deque<Item> implements Iterable<Item> 
+{
+	private int size;
+	private Node first;
+	private Node last;
 
-	private class Node {
+
+	private class Node 
+	{
 		Item item;
 		Node next;
 	}
 
-	Node first;
-	Node last;
-
+	
 	public Deque() {
 
 	}
+	
+	public boolean isEmpty()
+	{
+		return size == 0;
+	}
+	
+	public int size()
+	{
+		return size;
+	}
 
-	public void addFirst(Item item) {
+	public void addFirst(Item item) 
+	{
+		if (item == null)
+			throw new IllegalArgumentException();
 		Node node = new Node();
 		node.item = item;
 
@@ -32,7 +48,10 @@ public class Deque<Item> implements Iterable<Item> {
 		size++;
 	}
 
-	public void addLast(Item item) {
+	public void addLast(Item item) 
+	{
+		if (item == null)
+			throw new IllegalArgumentException();
 		Node node = new Node();
 		node.item = item;
 		if (first == null) {
@@ -46,7 +65,8 @@ public class Deque<Item> implements Iterable<Item> {
 		size++;
 	}
 
-	public Item removeFirst() throws NoSuchElementException {
+	public Item removeFirst() 
+    {
 		if (first != null) {
 			Node node = first;
 			first = first.next;
@@ -59,19 +79,20 @@ public class Deque<Item> implements Iterable<Item> {
 
 	}
 
-	public Item removeLast() throws NoSuchElementException
+	public Item removeLast() 
 	{
 		
-		if(first!=null && last!=null && first==last)
+		if (first != null && last != null && first == last)
 		{
-			Node temp=first;
-			first=null;
-			last=null;
+			Node temp = first;
+			first = null;
+			last = null;
+			size=0;
 			return temp.item;
 			
 		}
 		
-		if(first==null)
+		if (first == null)
 		{
 			throw new NoSuchElementException();
 		}
@@ -100,7 +121,7 @@ public class Deque<Item> implements Iterable<Item> {
 	private class DequeIterator implements Iterator<Item> 
 	{
 		
-		public void remove()throws UnsupportedOperationException
+		public void remove()
 		{
 			 throw new UnsupportedOperationException();
 		}
@@ -113,11 +134,11 @@ public class Deque<Item> implements Iterable<Item> {
 		}
 
 		@Override
-		public Item next() throws UnsupportedOperationException
+		public Item next() 
 		{
-			if(current==null)
+			if (current == null)
 			{
-				throw new UnsupportedOperationException();
+				throw new NoSuchElementException();
 			}
 			
 			
@@ -127,6 +148,11 @@ public class Deque<Item> implements Iterable<Item> {
 			return item;
 		}
 
+	}
+	public static void main(String[] args) 
+	{
+		
+		
 	}
 
 }
