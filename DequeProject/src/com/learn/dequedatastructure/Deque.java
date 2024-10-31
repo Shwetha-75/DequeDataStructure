@@ -3,10 +3,14 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Deque<Item> implements Iterable<Item> 
+public class Deque<Item> implements Iterable<Item>
 {
+	// Attributes
+	// Size
 	private int size;
+	// header of LL
 	private Node first;
+	// footer of LL
 	private Node last;
 
 
@@ -31,8 +35,11 @@ public class Deque<Item> implements Iterable<Item>
 		return size;
 	}
 
+
+	// insertion at the head
 	public void addFirst(Item item) 
-	{
+	{  
+		
 		if (item == null)
 			throw new IllegalArgumentException();
 		Node node = new Node();
@@ -48,6 +55,8 @@ public class Deque<Item> implements Iterable<Item>
 		size++;
 	}
 
+
+	// insertion at footer
 	public void addLast(Item item) 
 	{
 		if (item == null)
@@ -65,8 +74,10 @@ public class Deque<Item> implements Iterable<Item>
 		size++;
 	}
 
+	
+        // removes the first item
 	public Item removeFirst() 
-    {
+        {
 		if (first != null) {
 			Node node = first;
 			first = first.next;
@@ -79,6 +90,7 @@ public class Deque<Item> implements Iterable<Item>
 
 	}
 
+	// removes the last item
 	public Item removeLast() 
 	{
 		
@@ -112,6 +124,9 @@ public class Deque<Item> implements Iterable<Item>
 		}
 	}
 
+
+
+	
 	@Override
 	public Iterator<Item> iterator() {
 
